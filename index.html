@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AP · Why Support This Story</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:        #0d1b2a;
+      --ink-soft:   #2c3e50;
+      --ink-muted:  #5a6a7a;
+      --newsprint:  #f5f0e8;
+      --cream:      #faf7f2;
+      --red:        #c41e3a;
+      --red-dark:   #9b1a2e;
+      --rule:       #d4cdc0;
+      --rule-dark:  #b8b0a0;
+      --white:      #ffffff;
+      --shadow-sm:  0 1px 3px rgba(13,27,42,0.08);
+      --shadow-md:  0 4px 16px rgba(13,27,42,0.12);
+      --shadow-lg:  0 8px 32px rgba(13,27,42,0.16);
+    }
+
+    html, body {
+      height: 100%;
+      background: var(--newsprint);
+      color: var(--ink);
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--ink);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+      border-bottom: 3px solid var(--red);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .ap-wordmark {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .ap-badge {
+      background: var(--white);
+      color: var(--ink);
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: -0.02em;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .ap-title {
+      color: var(--white);
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 0.8rem;
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.85;
+    }
+
+    .header-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--red);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: 1px solid rgba(196,30,58,0.4);
+      padding: 0.2rem 0.5rem;
+    }
+
+    /* ── MAIN LAYOUT ── */
+    main {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      min-height: calc(100vh - 56px);
+    }
+
+    /* ── LEFT PANEL ── */
+    .input-panel {
+      background: var(--cream);
+      border-right: 1px solid var(--rule);
+      padding: 2.5rem 2.5rem 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .panel-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .panel-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+
+    .field {
+      margin-bottom: 1.5rem;
+    }
+
+    label {
+      display: block;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 0.45rem;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    textarea {
+      width: 100%;
+      background: var(--white);
+      border: 1px solid var(--rule-dark);
+      border-radius: 0;
+      color: var(--ink);
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 0.95rem;
+      font-weight: 300;
+      padding: 0.65rem 0.85rem;
+      transition: border-color 0.15s, box-shadow 0.15s;
+      outline: none;
+      -webkit-appearance: none;
+    }
+
+    input[type="text"]:focus,
+    input[type="password"]:focus,
+    textarea:focus {
+      border-color: var(--ink-soft);
+      box-shadow: 0 0 0 2px rgba(13,27,42,0.06);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 200px;
+      line-height: 1.65;
+    }
+
+    .api-key-wrap {
+      position: relative;
+    }
+
+    .api-key-wrap input {
+      padding-right: 2.5rem;
+    }
+
+    .toggle-vis {
+      position: absolute;
+      right: 0.75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--ink-muted);
+      padding: 0;
+      display: flex;
+      align-items: center;
+      font-size: 0.8rem;
+    }
+
+    .hint {
+      font-size: 0.72rem;
+      color: var(--ink-muted);
+      margin-top: 0.35rem;
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-style: italic;
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--rule);
+      margin: 1.75rem 0;
+    }
+
+    .generate-btn {
+      background: var(--ink);
+      color: var(--white);
+      border: none;
+      padding: 0.9rem 1.75rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      transition: background 0.15s, transform 0.1s;
+      width: 100%;
+      justify-content: center;
+      margin-top: 0.5rem;
+    }
+
+    .generate-btn:hover {
+      background: var(--red);
+    }
+
+    .generate-btn:active {
+      transform: scale(0.99);
+    }
+
+    .generate-btn:disabled {
+      background: var(--ink-muted);
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .btn-arrow {
+      font-size: 1rem;
+      transition: transform 0.2s;
+    }
+
+    .generate-btn:not(:disabled):hover .btn-arrow {
+      transform: translateX(3px);
+    }
+
+    /* ── RIGHT PANEL ── */
+    .output-panel {
+      background: var(--newsprint);
+      padding: 2.5rem 2.5rem 3rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── EMPTY STATE ── */
+    .empty-state {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      opacity: 0.4;
+    }
+
+    .empty-rule {
+      width: 48px;
+      height: 3px;
+      background: var(--ink-muted);
+    }
+
+    .empty-state p {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--ink-muted);
+      text-align: center;
+      max-width: 200px;
+      line-height: 1.5;
+    }
+
+    /* ── LOADING ── */
+    .loading-state {
+      flex: 1;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.25rem;
+    }
+
+    .loading-state.active {
+      display: flex;
+    }
+
+    .spinner-wrap {
+      display: flex;
+      gap: 6px;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      background: var(--ink);
+      border-radius: 50%;
+      animation: pulse 1.2s ease-in-out infinite;
+    }
+
+    .dot:nth-child(2) { animation-delay: 0.2s; }
+    .dot:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes pulse {
+      0%, 80%, 100% { opacity: 0.2; transform: scale(0.8); }
+      40% { opacity: 1; transform: scale(1); }
+    }
+
+    .loading-text {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+
+    /* ── ERROR ── */
+    .error-box {
+      display: none;
+      background: #fff0f0;
+      border-left: 3px solid var(--red);
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .error-box.active {
+      display: block;
+    }
+
+    .error-box p {
+      font-size: 0.85rem;
+      color: var(--red-dark);
+      font-family: 'Source Serif 4', Georgia, serif;
+    }
+
+    /* ── SUPPORT BOX ── */
+    .support-box-wrap {
+      display: none;
+      flex-direction: column;
+      gap: 1.5rem;
+      animation: fadeUp 0.4s ease forwards;
+    }
+
+    .support-box-wrap.active {
+      display: flex;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .support-box {
+      background: var(--white);
+      border: 1px solid var(--rule-dark);
+      box-shadow: var(--shadow-md);
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .support-box-top {
+      background: var(--ink);
+      padding: 1rem 1.5rem 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .support-ap-badge {
+      background: var(--white);
+      color: var(--ink);
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .support-box-kicker {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .support-box-body {
+      padding: 1.5rem;
+      border-bottom: 3px solid var(--red);
+    }
+
+    .support-headline {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      line-height: 1.3;
+      color: var(--ink);
+      margin-bottom: 0.85rem;
+    }
+
+    .support-text {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 0.9rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--ink-soft);
+    }
+
+    .support-box-footer {
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      background: var(--cream);
+    }
+
+    .support-cta {
+      background: var(--red);
+      color: var(--white);
+      border: none;
+      padding: 0.65rem 1.35rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.15s;
+      white-space: nowrap;
+    }
+
+    .support-cta:hover {
+      background: var(--red-dark);
+    }
+
+    .support-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .tone-chip {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      border: 1px solid var(--rule-dark);
+      padding: 0.2rem 0.45rem;
+    }
+
+
+    /* ── JSON ACCORDION ── */
+    .json-accordion {
+      border: 1px solid var(--rule-dark);
+      overflow: hidden;
+    }
+
+    .json-toggle {
+      background: none;
+      border: none;
+      width: 100%;
+      text-align: left;
+      padding: 0.75rem 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      background: var(--cream);
+      transition: background 0.15s;
+    }
+
+    .json-toggle:hover {
+      background: var(--rule);
+    }
+
+    .json-chevron {
+      transition: transform 0.2s;
+      font-size: 0.7rem;
+    }
+
+    .json-accordion.open .json-chevron {
+      transform: rotate(180deg);
+    }
+
+    .json-body {
+      display: none;
+      background: var(--ink);
+      padding: 1rem 1.25rem;
+      overflow-x: auto;
+    }
+
+    .json-accordion.open .json-body {
+      display: block;
+    }
+
+    .json-body pre {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      line-height: 1.7;
+      color: #a8c4d8;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    /* ── JSON syntax highlighting ── */
+    .json-key   { color: #7ec8e3; }
+    .json-str   { color: #c3e88d; }
+    .json-num   { color: #f78c6c; }
+    .json-bool  { color: #c792ea; }
+
+    /* ── FOOTER NOTE ── */
+    .prototype-note {
+      margin-top: auto;
+      padding-top: 2rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      color: var(--ink-muted);
+      text-align: center;
+      opacity: 0.5;
+    }
+
+    @media (max-width: 900px) {
+      main { grid-template-columns: 1fr; }
+      .input-panel { border-right: none; border-bottom: 1px solid var(--rule); }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="ap-wordmark">
+    <div class="ap-badge">AP</div>
+    <span class="ap-title">Reader Revenue · AI Prototype</span>
+  </div>
+  <span class="header-tag">Internal · Do Not Distribute</span>
+</header>
+
+<main>
+
+  <!-- ═══ LEFT: INPUTS ═══ -->
+  <section class="input-panel">
+    <div class="panel-label">Article Input</div>
+
+    <div class="field">
+      <label for="api-key">OpenAI API Key</label>
+      <div class="api-key-wrap">
+        <input type="password" id="api-key" placeholder="sk-..." autocomplete="off" />
+        <button class="toggle-vis" onclick="toggleKey()" title="Show/hide key" aria-label="Toggle key visibility">👁</button>
+      </div>
+      <p class="hint">Stored in memory only — never leaves your browser.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="field">
+      <label for="headline">Story Headline</label>
+      <input type="text" id="headline" placeholder="Paste the article headline here…" />
+    </div>
+
+    <div class="field">
+      <label for="article-text">Article Text</label>
+      <textarea id="article-text" placeholder="Paste the article body here (or the first several paragraphs)…"></textarea>
+      <p class="hint">The more text you provide, the more specific the message.</p>
+    </div>
+
+    <button class="generate-btn" id="generate-btn" onclick="generate()">
+      <span>Generate Support Message</span>
+      <span class="btn-arrow">→</span>
+    </button>
+  </section>
+
+  <!-- ═══ RIGHT: OUTPUT ═══ -->
+  <section class="output-panel">
+    <div class="panel-label">Support Box Preview</div>
+
+    <!-- Empty state -->
+    <div class="empty-state" id="empty-state">
+      <div class="empty-rule"></div>
+      <p>Paste a story and generate a contextual support message.</p>
+    </div>
+
+    <!-- Loading -->
+    <div class="loading-state" id="loading-state">
+      <div class="spinner-wrap">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <p class="loading-text">Generating contextual message…</p>
+    </div>
+
+    <!-- Error -->
+    <div class="error-box" id="error-box">
+      <p id="error-text"></p>
+    </div>
+
+    <!-- Support box + JSON -->
+    <div class="support-box-wrap" id="support-box-wrap">
+
+      <div class="support-box">
+        <div class="support-box-top">
+          <div class="support-ap-badge">AP</div>
+          <span class="support-box-kicker">Why Support This Story</span>
+        </div>
+        <div class="support-box-body">
+          <p class="support-headline" id="out-headline"></p>
+          <p class="support-text" id="out-body"></p>
+        </div>
+        <div class="support-box-footer">
+          <a class="support-cta" id="out-cta" href="https://apnews.com/donate?target=button?pre-selected%3Dtrue&payment-type=Monthly&payment-price=10" target="_blank" rel="noopener">Support This Reporting</a>
+          <div class="support-meta">
+            <span class="tone-chip" id="out-tone"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="json-accordion" id="json-accordion">
+        <button class="json-toggle" onclick="toggleJson()">
+          <span>Raw JSON Output</span>
+          <span class="json-chevron">▾</span>
+        </button>
+        <div class="json-body">
+          <pre id="json-out"></pre>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="prototype-note">Prototype · AP Audience & Revenue · 2025</p>
+  </section>
+
+</main>
+
+<script>
+  // ── Utilities ──────────────────────────────────────────────────
+
+  function toggleKey() {
+    const f = document.getElementById('api-key');
+    f.type = f.type === 'password' ? 'text' : 'password';
+  }
+
+  function toggleJson() {
+    const acc = document.getElementById('json-accordion');
+    acc.classList.toggle('open');
+  }
+
+  function showState(state) {
+    document.getElementById('empty-state').style.display    = state === 'empty'   ? 'flex'  : 'none';
+    document.getElementById('loading-state').classList.toggle('active', state === 'loading');
+    document.getElementById('error-box').classList.toggle('active', state === 'error');
+    document.getElementById('support-box-wrap').classList.toggle('active', state === 'result');
+  }
+
+  function showError(msg) {
+    document.getElementById('error-text').textContent = msg;
+    showState('error');
+  }
+
+  // ── JSON syntax highlighting ────────────────────────────────────
+
+  function highlightJson(obj) {
+    const raw = JSON.stringify(obj, null, 2);
+    return raw
+      .replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(?=\s*:))/g,
+               '<span class="json-key">$1</span>')
+      .replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*")(?!\s*:)/g,
+               '<span class="json-str">$1</span>')
+      .replace(/\b(\d+\.?\d*)\b/g, '<span class="json-num">$1</span>')
+      .replace(/\b(true|false|null)\b/g, '<span class="json-bool">$1</span>');
+  }
+
+  // ── Render result ───────────────────────────────────────────────
+
+  function renderResult(data) {
+    document.getElementById('out-headline').textContent = data.support_headline || '';
+    document.getElementById('out-body').textContent     = data.support_body     || '';
+    document.getElementById('out-cta').textContent      = data.cta_label        || 'Support This Reporting';
+    document.getElementById('out-tone').textContent     = data.tone             || '';
+
+    document.getElementById('json-out').innerHTML = highlightJson(data);
+
+    // Close accordion on fresh render
+    document.getElementById('json-accordion').classList.remove('open');
+
+    showState('result');
+  }
+
+  // ── Main generate call ──────────────────────────────────────────
+
+  async function generate() {
+    const apiKey   = document.getElementById('api-key').value.trim();
+    const headline = document.getElementById('headline').value.trim();
+    const body     = document.getElementById('article-text').value.trim();
+    const btn      = document.getElementById('generate-btn');
+
+    // Validation
+    if (!apiKey)   { alert('Please enter your OpenAI API key.'); return; }
+    if (!headline) { alert('Please enter a story headline.'); return; }
+    if (!body)     { alert('Please paste some article text.'); return; }
+
+    btn.disabled = true;
+    showState('loading');
+
+    const systemPrompt = `You are an editorial assistant for The Associated Press. Your task is to generate a contextual "Why Support This Story" donation message that will appear alongside a specific news article.
+
+RULES — follow every rule precisely:
+1. Base the message ONLY on the content provided. Do not introduce external facts.
+2. Do not use urgency language ("act now", "last chance", "limited time", "don't miss").
+3. Do not imply AP is the only source covering this story.
+4. Maintain a calm, factual, nonpartisan tone consistent with AP editorial standards.
+5. Do not exaggerate the stakes or use emotional manipulation.
+6. Do not reference political parties, politicians, or advocacy positions.
+7. The support_headline must be 10 words or fewer.
+8. The support_body must be 2-3 sentences, focused on the civic or public-service value of this type of reporting.
+9. tone must be exactly one of: informational, investigative, community, explainer.
+
+Respond with ONLY valid JSON. No markdown. No explanation. No preamble.
+
+Output schema:
+{
+  "support_headline": "string",
+  "support_body": "string",
+  "cta_label": "string",
+  "tone": "string"
+}`;
+
+    const userPrompt = `Headline: ${headline}
+
+Article text:
+${body.slice(0, 4000)}`;
+
+    try {
+      const response = await fetch('https://api.openai.com/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${apiKey}`
+        },
+        body: JSON.stringify({
+          model: 'gpt-4o',
+          messages: [
+            { role: 'system', content: systemPrompt },
+            { role: 'user',   content: userPrompt }
+          ],
+          temperature: 0.4,
+          max_tokens: 400,
+          response_format: { type: 'json_object' }
+        })
+      });
+
+      if (!response.ok) {
+        const err = await response.json().catch(() => ({}));
+        const msg = err?.error?.message || `API error ${response.status}`;
+        showError(`OpenAI API error: ${msg}`);
+        btn.disabled = false;
+        return;
+      }
+
+      const result = await response.json();
+      const raw    = result.choices?.[0]?.message?.content;
+
+      if (!raw) {
+        showError('No content returned from API. Please try again.');
+        btn.disabled = false;
+        return;
+      }
+
+      let parsed;
+      try {
+        parsed = JSON.parse(raw);
+      } catch {
+        showError('Could not parse the AI response as JSON. Try again.');
+        btn.disabled = false;
+        return;
+      }
+
+      renderResult(parsed);
+
+    } catch (err) {
+      if (err.name === 'TypeError' && err.message.includes('fetch')) {
+        showError('Network error — check your connection and that your API key is valid.');
+      } else {
+        showError(`Unexpected error: ${err.message}`);
+      }
+    }
+
+    btn.disabled = false;
+  }
+
+  // Allow Enter in headline field to trigger generate
+  document.getElementById('headline').addEventListener('keydown', e => {
+    if (e.key === 'Enter') generate();
+  });
+</script>
+</body>
+</html>

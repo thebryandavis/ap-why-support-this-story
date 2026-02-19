@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AP Support Box</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:      #0d1b2a;
+      --ink-soft: #2c3e50;
+      --muted:    #5a6a7a;
+      --cream:    #faf7f2;
+      --rule:     #d4cdc0;
+      --red:      #c41e3a;
+      --red-dark: #9b1a2e;
+      --white:    #ffffff;
+    }
+
+    body {
+      width: 300px;
+      background: var(--cream);
+      font-family: 'Source Serif 4', Georgia, serif;
+      color: var(--ink);
+    }
+
+    header {
+      background: var(--ink);
+      border-bottom: 3px solid var(--red);
+      padding: 0.9rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .ap-badge {
+      background: var(--white);
+      color: var(--ink);
+      font-family: 'DM Mono', monospace;
+      font-weight: 500;
+      font-size: 0.75rem;
+      width: 26px;
+      height: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      letter-spacing: -0.02em;
+    }
+
+    .header-text {
+      color: var(--white);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.85;
+      line-height: 1.4;
+    }
+
+    .body {
+      padding: 1.25rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .field label {
+      display: block;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .field input {
+      width: 100%;
+      background: var(--white);
+      border: 1px solid var(--rule);
+      color: var(--ink);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      padding: 0.5rem 0.65rem;
+      outline: none;
+      border-radius: 0;
+      -webkit-appearance: none;
+    }
+
+    .field input:focus {
+      border-color: var(--ink-soft);
+    }
+
+    .hint {
+      font-size: 0.68rem;
+      font-style: italic;
+      color: var(--muted);
+      margin-top: 0.3rem;
+      font-family: 'Source Serif 4', Georgia, serif;
+    }
+
+    .save-btn {
+      background: var(--ink);
+      color: var(--white);
+      border: none;
+      width: 100%;
+      padding: 0.65rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    .save-btn:hover { background: var(--red); }
+
+    .status {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      text-align: center;
+      padding: 0.4rem;
+      display: none;
+    }
+
+    .status.ok  { color: #2e7d32; display: block; }
+    .status.err { color: var(--red); display: block; }
+
+    .divider {
+      height: 1px;
+      background: var(--rule);
+    }
+
+    .inject-section {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .inject-btn {
+      background: var(--red);
+      color: var(--white);
+      border: none;
+      width: 100%;
+      padding: 0.75rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.15s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .inject-btn:hover  { background: var(--red-dark); }
+    .inject-btn:disabled {
+      background: var(--muted);
+      cursor: not-allowed;
+    }
+
+    .page-status {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      text-align: center;
+      font-style: italic;
+    }
+
+    .page-status.on-story { color: #2e7d32; }
+
+    footer {
+      padding: 0.6rem 1rem;
+      border-top: 1px solid var(--rule);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      text-align: center;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="ap-badge">AP</div>
+  <div class="header-text">Why Support This Story<br>Reader Revenue Prototype</div>
+</header>
+
+<div class="body">
+
+  <!-- API Key -->
+  <div class="field">
+    <label for="api-key">OpenAI API Key</label>
+    <input type="password" id="api-key" placeholder="sk-..." autocomplete="off" />
+    <p class="hint">Saved locally. Never leaves your browser.</p>
+  </div>
+
+  <button class="save-btn" id="save-btn">Save Key</button>
+  <div class="status" id="status"></div>
+
+  <div class="divider"></div>
+
+  <!-- Inject -->
+  <div class="inject-section">
+    <span class="section-label">Active Story</span>
+    <p class="page-status" id="page-status">Checking page…</p>
+    <button class="inject-btn" id="inject-btn" disabled>
+      <span id="inject-label">Generate Support Box</span>
+    </button>
+  </div>
+
+</div>
+
+<footer>Internal Prototype · Do Not Distribute</footer>
+
+<script src="popup.js"></script>
+</body>
+</html>
