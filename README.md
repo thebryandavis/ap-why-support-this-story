@@ -1,6 +1,26 @@
 # AP · Why Support This Story
 
-A prototype that uses AI to generate contextual donation messaging for AP News stories — replacing generic, static fundraising modules with copy that's grounded in the specific article a reader is consuming.
+A prototype for drafting a donation message from the article a reader just finished, rather than showing the same appeal everywhere.
+
+**Status:** Prototype
+**Built for:** Reader revenue and editorial product teams
+**My role:** Product idea, prompt and output schema, prototype, Chrome extension, and editorial rules
+
+## What I was trying to learn
+
+Does story-specific context make a support ask more useful without turning editorial work into a conversion trick?
+
+## What I built
+
+The prototype takes a headline and article text, returns structured support copy, and renders it in a standalone page or Chrome extension. The output is limited to the article content and reviewed against explicit editorial rules.
+
+## What remains unproven
+
+This version does not show whether contextual copy improves donations or reader trust. It also should not publish automatically; the next test needs to include editorial review time as well as conversion.
+
+## Next step
+
+Compare the contextual version with a static donation module, measuring donation behavior, reader feedback, and the cost of review.
 
 Built by Bryan Davis.
 
