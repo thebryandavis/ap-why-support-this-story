@@ -1,6 +1,8 @@
-# AP · Why Support This Story
+# Why Support This Story
 
-A prototype for drafting a donation message from the article a reader just finished, rather than showing the same appeal everywhere.
+A prototype for context-aware conversion messaging with human review.
+
+It began as a reader-revenue experiment, but the product question applies to any trust-sensitive support ask.
 
 **Status:** Prototype
 **Built for:** Reader revenue and editorial product teams
