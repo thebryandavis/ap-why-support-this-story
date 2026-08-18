@@ -1,12 +1,11 @@
 # Why Support This Story
 
-A prototype for context-aware conversion messaging with human review.
+Context-aware conversion messaging with human review.
 
 It began as a reader-revenue experiment, but the product question applies to any trust-sensitive support ask.
 
-**Status:** Prototype
 **Built for:** Reader revenue and editorial product teams
-**My role:** Product idea, prompt and output schema, prototype, Chrome extension, and editorial rules
+**My role:** Product idea, prompt and output schema, Chrome extension, and editorial rules
 
 ## What I was trying to learn
 
@@ -14,7 +13,7 @@ Does story-specific context make a support ask more useful without turning edito
 
 ## What I built
 
-The prototype takes a headline and article text, returns structured support copy, and renders it in a standalone page or Chrome extension. The output is limited to the article content and reviewed against explicit editorial rules.
+The tool takes a headline and article text, returns structured support copy, and renders it in a standalone page or Chrome extension. The output is limited to the article content and reviewed against explicit editorial rules.
 
 ## What remains unproven
 
@@ -48,7 +47,7 @@ extension/
 
 ---
 
-## Standalone Prototype
+## Standalone tool
 
 Open `index.html` directly in a browser. No server or build step needed.
 
